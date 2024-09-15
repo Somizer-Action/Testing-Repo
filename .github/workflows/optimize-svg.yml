@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   optimize:
     runs-on: ubuntu-latest
@@ -23,16 +24,7 @@ jobs:
     - name: Run SVG optimization script
       run: node index.js
 
-    - name: Configure Git
-      run: |
-        git config --global user.name "zerops-gh"
-        git config --global user.email "zerops.gh@gmail.com"
-
-    - name: Commit and push changes
-      run: |
-        git add .
-        git commit -m "Optimize SVG files"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        UV_THREADPOOL_SIZE: 64
+    - name: Trigger SVG Somizer
+      uses: svg-somizer/svg-somizer-action@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
