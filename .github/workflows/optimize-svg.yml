@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+
+permissions:
+  contents: write  # Allows workflows to write to repository contents
+
 jobs:
   optimize:
     runs-on: ubuntu-latest
@@ -11,12 +15,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-      
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-      
+
     - name: Install dependencies
       run: npm install
 
@@ -36,5 +40,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         UV_THREADPOOL_SIZE: 64
-
-        
