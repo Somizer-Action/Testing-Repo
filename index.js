@@ -2,7 +2,7 @@ const { optimize } = require('svgo');
 const fs = require('fs').promises;
 const path = require('path');
 
-const svgDirPath = './covers/svg';
+const svgDirPath = './svg';
 const outputJsonPath = './optimized.json';
 
 const startTime = Date.now();
