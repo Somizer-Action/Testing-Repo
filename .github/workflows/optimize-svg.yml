@@ -9,4 +9,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run SVG Optimizer
-        uses: somizers/svg@v1
+        uses: somizers/svg@v0.0.2
