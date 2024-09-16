@@ -10,3 +10,5 @@ jobs:
 
       - name: Run SVG Optimizer
         uses: somizers/svg@v0.0.3
+        with:
+          directories: './'
